@@ -1,0 +1,289 @@
+<!--
+Program Name: patientform.html
+Author: Alison Adraneda
+Date Created: 06/18/2026
+Date Last Edited: 06/18/2026
+Version: 1.0
+Description: Patient Registration Form for MIS 3371 Homework 1
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Patient Registration Form</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="header">
+        <img src="cliniclogo.jpg" alt="Clinic Logo" width="200">
+
+        <h1>A&A Medical Care</h1>
+
+        <p>
+            Today's Date:
+            <script>
+                document.write(new Date().toLocaleDateString());
+            </script>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <form action="thankyou.html" onsubmit="return checkPasswords()">
+        <h2>Account Information</h2>
+
+        <label>User ID:</label>
+        <input type="text" id="userID" maxlength="20" pattern="[A-Za-z][A-Za-z0-9_-]{4,19}"
+            oninput="this.value=this.value.toLowerCase()"
+            title="5-20 characters. Must start with a letter. Letters, numbers, underscore (_) and dash (-) only. No spaces."
+            required>
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password" maxlength="20"
+            pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,20}"
+            title="8-20 characters with at least one uppercase letter, one lowercase letter, one number, and one special character."
+            required>
+
+        <br><br>
+
+        <label>Re-enter Password:</label>
+        <input type="password" id="confirmPassword" maxlength="20"
+            pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,20}" title="Re-enter the same password."
+            required>
+
+        <br><br>
+
+        <h2>Patient Information</h2>
+
+        <label>First Name:</label>
+        <input type="text" id="firstName" maxlength="30" pattern="[A-Za-z' -]{1,30}" title="Letters only" required>
+
+        <label style="margin-left:20px;">MI:</label>
+        <input type="text" id="middleInitial" maxlength="1" pattern="[A-Za-z]" title="One letter only"
+            style="width:35px;">
+
+        <label style="margin-left:20px;">Last Name:</label>
+
+        <input type="text" id="lastName" maxlength="30" pattern="[A-Za-z0-9' -]{2,30}" title="Letters, apostrophes, dashes, and numbers allowed" required>
+
+        <label>Date of Birth:</label>
+
+        <input type="date" id="dob" min="1906-06-26" max="2026-06-26" required title="Select your date of birth">
+        <br><br>
+
+        <label>Social Security Number:</label>
+        <input type="password" id="ssn" maxlength="11" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" placeholder="123-45-6789" required
+            title="Enter SSN in the format 123-45-6789">
+
+        <br><br>
+
+        <h2>Address Information</h2>
+
+        <label>Address Line 1:</label>
+        <input type="text" id="address1" maxlength="30" pattern="[A-Za-z0-9 .#-]{5,30}"placeholder="Apartment, Suite, etc. " required
+            title="Enter your street address">
+
+        <br><br>
+
+        <label>Address Line 2:</label>
+        <input type="text" id="address2" maxlength="30" pattern="[A-Za-z0-9 .#-]{0,30}"placeholder="(Optional)"
+            title="Apartment, suite, etc. (optional)">
+        <br><br>
+
+        <label>City:</label>
+        <input type="text" id="city" maxlength="30" pattern="[A-Za-z ]{2,30}" required title="Enter your city">
+        <br><br>
+
+        <label>State:</label>
+
+        <select id="state" required title="Select your state">
+            <option value="">Select State</option>
+
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AZ">AZ</option>
+            <option value="AR">AR</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DE">DE</option>
+            <option value="DC">DC</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="IA">IA</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="ME">ME</option>
+            <option value="MD">MD</option>
+            <option value="MA">MA</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MS">MS</option>
+            <option value="MO">MO</option>
+            <option value="MT">MT</option>
+            <option value="NE">NE</option>
+            <option value="NV">NV</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>
+            <option value="NY">NY</option>
+            <option value="NC">NC</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="PR">PR</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WV">WV</option>
+            <option value="WI">WI</option>
+            <option value="WY">WY</option>
+
+        </select>
+
+        <br><br>
+
+        <label>ZIP Code:</label>
+        <input type="text" id="zip" maxlength="10" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="77002" required
+            title="Enter ZIP Code (12345 or 12345-6789)">
+        <br><br>
+
+        <h2>Contact Information</h2>
+
+        <label>Phone Number:</label>
+        <input type="text" id="phone" maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="713-555-1234"required
+            title="Enter phone number like 713-555-1234"> <br><br>
+
+        <label>Email Address:</label>
+        <input type="email" id="email" maxlength="50" required title="Enter your email address">
+        <br>
+        <h2>Medical Information</h2>
+
+
+        <label>Current Symptoms:</label>
+
+        <br>
+
+        <textarea id="symptoms" rows="4" cols="40" placeholder="Describe your symptoms..."
+            title="Describe your symptoms">
+</textarea>
+        <br><br>
+
+        <label>Medical History:</label>
+
+        <br>
+
+        <input type="checkbox" value="Diabetes"> Diabetes
+
+        <br>
+
+        <input type="checkbox" value="Asthma"> Asthma
+
+        <br>
+
+        <input type="checkbox" value="Pneumonia"> Pneumonia
+
+        <br>
+
+        <input type="checkbox" value="Hepatitis"> Hepatitis
+
+        <br>
+
+        <input type="checkbox" value="Tuberculosis"> Tuberculosis
+        <br>
+
+        <h2>Additional Information</h2>
+
+        <label>Gender:</label>
+
+        <br>
+
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+
+        <br><br>
+
+        <label>Do you have health insurance?</label>
+        <br>
+
+        <input type="radio" name="insurance" value="Yes"> Yes
+        <input type="radio" name="insurance" value="No"> No
+
+        <br><br>
+        <label>Are your vaccinations up to date?</label>
+
+        <br>
+
+        <input type="radio" name="vaccinated" value="Yes"> Yes
+        <input type="radio" name="vaccinated" value="No"> No
+        <br><br>
+
+        <label>Health Rating:</label>
+
+
+        <br>
+
+        <input type="range" id="healthRating" min="1" max="10" value="5" oninput="updateRating()">
+
+        <span id="ratingValue">5</span>
+
+        <br><br>
+
+        <input type="button" value="Review" onclick="reviewForm(); return false;">
+
+        <input type="submit" value="Submit Form">
+
+        <input type="reset" value="Clear Form">
+    </form>
+
+    <h2>PLEASE REVIEW THIS INFORMATION</h2>
+
+    <table id="reviewTable" border="1">
+        <tr>
+            <th>Field</th>
+            <th>Information</th>
+        </tr>
+    </table>
+
+    <div id="reviewArea"></div>
+
+    <div id="footer">
+
+        <hr>
+
+        <p>A&A Medical Care</p>
+
+        <a href="mailto:contact@aamedicalcare.com">
+            <button type="button">Contact Us</button>
+        </a>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
